@@ -1,0 +1,14 @@
+[Unit]
+Description=Programa de trazabilidad en máquinas de tubo
+Requires=gunicorn.service
+After=network.target
+
+[Service]
+User=paco
+WorkingDirectory=/home/paco/trazabilidad/src
+Environment="PATH=/home/paco/trazabilidad/venv/bin"
+ExecStart=/home/paco/trazabilidad/venv/bin/python trazabilidad.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
